@@ -1,7 +1,7 @@
 package org.droolsassert;
 
 import static java.util.concurrent.TimeUnit.HOURS;
-import static org.drools.core.impl.KnowledgeBaseFactory.newKnowledgeSessionConfiguration;
+import static org.drools.core.impl.RuleBaseFactory.newKnowledgeSessionConfiguration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.droolsassert.SpringIntegration2Test.AppConfig;

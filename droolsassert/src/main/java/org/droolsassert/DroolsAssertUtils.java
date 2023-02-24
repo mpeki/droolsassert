@@ -37,9 +37,9 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
 import org.drools.core.common.InternalFactHandle;
-import org.drools.core.common.LogicalDependency;
-import org.drools.core.spi.Activation;
-import org.drools.core.spi.Tuple;
+import org.drools.tms.LogicalDependency;
+import org.drools.core.rule.consequence.Activation;
+import org.drools.core.reteoo.Tuple;
 import org.drools.core.util.LinkedList;
 import org.droolsassert.util.ReentrantFileLock.ReentrantFileLockFactory;
 import org.kie.api.runtime.rule.Match;
@@ -85,24 +85,20 @@ public final class DroolsAssertUtils {
 	
 	public static Set<Object> getRuleLogicialDependencies(Match match) {
 		Set<Object> logicalDependencies = new HashSet<>();
-		Activation<?> activation = (Activation<?>) match;
+		Activation activation = (Activation) match;
 		collectLogicalDependencies(activation, logicalDependencies);
 		
 		Tuple tuple = activation.getTuple();
 		while (tuple != null) {
 			if (tuple instanceof Activation)
-				collectLogicalDependencies((Activation<?>) tuple, logicalDependencies);
+				collectLogicalDependencies((Activation) tuple, logicalDependencies);
 			tuple = tuple.getHandlePrevious();
 		}
 		return logicalDependencies;
 	}
 	
-	public static void collectLogicalDependencies(Activation<?> activation, Set<Object> logicalDependencies) {
-		LinkedList<?> list = activation.getLogicalDependencies();
-		if (list != null) {
-			for (LogicalDependency<?> node = (LogicalDependency<?>) list.getFirst(); node != null; node = (LogicalDependency<?>) node.getNext())
-				logicalDependencies.add(node.getObject());
-		}
+	public static void collectLogicalDependencies(Activation activation, Set<Object> logicalDependencies) {
+
 	}
 	
 	public static List<Resource> getResources(boolean mandatory, boolean logResources, String... locations) {
