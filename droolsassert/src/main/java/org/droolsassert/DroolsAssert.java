@@ -38,9 +38,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
-import static org.kie.api.io.ResourceType.DRL;
-import static org.kie.api.io.ResourceType.getResourceType;
-import static org.kie.internal.io.ResourceFactory.newUrlResource;
+import static org.kie.api.io.ResourceType.*;
+import static org.kie.internal.io.ResourceFactory.newClassPathResource;
+import static org.kie.internal.io.ResourceFactory.newFileResource;
 
 import java.io.File;
 import java.io.IOException;
@@ -242,14 +242,14 @@ public class DroolsAssert implements BeforeEachCallback, AfterEachCallback, Test
 			
 			String[] source = droolsSessionMeta.source();
 			for (Resource resource : getResources(source.length == 0, droolsSessionMeta.logResources(), firstNonEmpty(droolsSessionMeta.value(), droolsSessionMeta.resources())))
-				kieHelper.addResource(newUrlResource(resource.getURL()));
+				kieHelper.addResource(newFileResource(resource.getFile()));
 			
 			if (source.length == 1) {
 				kieHelper.addContent(source[0], DRL);
 			} else {
 				checkArgument(source.length % 2 == 0, "Unexpected number of arguments for @DroolsSession.source");
 				for (int i = 0; i < source.length; i = i + 2)
-					kieHelper.addContent(source[i + 1], getResourceType(source[i]));
+					kieHelper.addContent(source[i + 1], determineResourceType(source[i]));
 			}
 			
 			KieBase kieBase = kieHelper.build(baseConfiguration(droolsSessionMeta));
