@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.droolsassert</groupId>
 		<artifactId>droolsassert-bom</artifactId>
-		<version>3.0.11-MSP-SNAPSHOT</version>
+		<version>${revision}</version>
 	</parent>
 
 	<artifactId>droolsassert</artifactId>
