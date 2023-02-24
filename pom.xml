@@ -32,13 +32,10 @@
 	</scm>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-		</snapshotRepository>
 		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<id>github</id>
+			<name>GitHub MPEKI Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/mpeki/REPOSITORY</url>
 		</repository>
 	</distributionManagement>
 
@@ -278,20 +275,20 @@
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
 			</plugin>-->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.5</version>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-gpg-plugin</artifactId>-->
+<!--				<version>1.5</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>sign-artifacts</id>-->
+<!--						<phase>verify</phase>-->
+<!--						<goals>-->
+<!--							<goal>sign</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
