@@ -17,7 +17,7 @@
                 </repository>
                 <repository>
                     <id>github</id>
-                    <url>https://maven.pkg.github.com/mpeki/maven-packages/</url>
+                    <url>https://maven.pkg.github.com/mpeki/</url>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
@@ -30,7 +30,7 @@
         <server>
             <id>github</id>
             <username>mpeki</username>
-            <password>${env.GITHUB_TOKEN}</password>
+            <password>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</password>
         </server>
     </servers>
 </settings>
