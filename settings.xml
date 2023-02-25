@@ -14,13 +14,17 @@
                 <repository>
                     <id>central</id>
                     <url>https://repo1.maven.org/maven2</url>
-                </repository>
-                <repository>
-                    <id>github</id>
-                    <url>https://maven.pkg.github.com/mpeki/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
+                </repository>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub Dishant Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/mpeki/droolsassert-bom</url>
                 </repository>
             </repositories>
         </profile>
