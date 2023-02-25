@@ -30,7 +30,7 @@
         <server>
             <id>github</id>
             <username>mpeki</username>
-            <password>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</password>
+            <password>${env.GITHUB_TOKEN}</password>
         </server>
     </servers>
 </settings>
