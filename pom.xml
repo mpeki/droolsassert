@@ -54,7 +54,7 @@
 		<drools.version>8.34.0.Final</drools.version>
 		<jbehave.version>4.8.3</jbehave.version>
 		<spring.version>5.3.10</spring.version>
-		<jackson.version>2.10.2</jackson.version>
+		<jackson.version>2.15.0</jackson.version>
 	</properties>
 
 	<dependencyManagement>
